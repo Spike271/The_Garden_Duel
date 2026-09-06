@@ -96,13 +96,26 @@ void Application::OnRender() const
 	EndDrawing();
 }
 
+#if defined(PLATFORM_WEB)
+static void MainLoopStep(void* arg)
+{
+	const Application* app = static_cast<const Application*>(arg);
+	app->OnUpdate();
+	app->OnRender();
+}
+#endif
+
 void Application::Run() const
 {
+#if defined(PLATFORM_WEB)
+	emscripten_set_main_loop_arg(MainLoopStep, const_cast<void*>(static_cast<const void*>(this)), 0, 1);
+#else
 	while (!WindowShouldClose() && !m_Game->QuitRequested())
 	{
 		OnUpdate();
 		OnRender();
 	}
+#endif
 }
 
 void Application::SetIcon()
