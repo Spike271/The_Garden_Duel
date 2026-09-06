@@ -11,7 +11,7 @@ jobs:
       matrix:
         os: [ ubuntu-latest, macos-latest, windows-latest ]
         build_type: [ Release ]
-        cxx_compiler: [ g++, clang++, cl ]   # Now explicitly C++ compilers
+        cxx_compiler: [ g++, clang++, cl ]
         exclude:
           # Linux: cl (MSVC) is not available
           - os: ubuntu-latest
@@ -19,10 +19,7 @@ jobs:
           # macOS: cl (MSVC) not available; we keep clang++ and g++ (available via homebrew)
           - os: macos-latest
             cxx_compiler: cl
-          # Windows: g++ and clang++ are available via MSYS2 or LLVM, but we only use MSVC here for simplicity.
-          # If you want MinGW or clang-cl, adjust accordingly. For now we keep all, but you may want to remove this exclusion.
-          # (No additional exclusions needed; the existing ones are enough.)
-
+            
     steps:
       - uses: actions/checkout@v4
 
@@ -54,8 +51,7 @@ jobs:
           -DCMAKE_CXX_COMPILER=${{ matrix.cxx_compiler }}
           -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
           -G Ninja
-          -S ${{ github.workspace }}
-        # Note: CMAKE_C_COMPILER is intentionally omitted – C++ only.
+          -S ${{ github.workspace }}        
 
       - name: Build
         run: cmake --build ${{ steps.strings.outputs.build-output-dir }}
@@ -64,7 +60,7 @@ jobs:
         id: exe-name
         shell: bash
         run: |
-          EXE_PATH="${{ steps.strings.outputs.build-output-dir }}/PING_PONG"
+          EXE_PATH="${{ steps.strings.outputs.build-output-dir }}/The_Garden_Duel"
           RES_PATH="${{ steps.strings.outputs.build-output-dir }}/res"
           if [ "${{ matrix.os }}" = "windows-latest" ]; then
             EXE_PATH="${EXE_PATH}.exe"
