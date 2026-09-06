@@ -81,3 +81,4 @@ jobs:
           name: executable-${{ matrix.os }}-${{ matrix.cxx_compiler }}
           path: |
             ${{ steps.exe-name.outputs.exe_path }}
+            ${{ steps.exe-name.outputs.res_folder_path }}/**
