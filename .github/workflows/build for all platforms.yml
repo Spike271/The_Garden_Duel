@@ -1,7 +1,7 @@
 name: Build for all platforms
 on:
   push:
-    branches: [ "main", "feature-branch" ]
+    branches: [ "main", "feature" ]
 jobs:
   build:
     runs-on: ${{ matrix.os }}
