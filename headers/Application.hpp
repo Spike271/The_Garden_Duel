@@ -25,6 +25,8 @@ public:
 
 	static void SetIcon();
 
+	friend void MainLoopStep(void* arg);
+
 private:
 	void OnUpdate() const;
 

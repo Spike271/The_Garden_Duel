@@ -97,7 +97,7 @@ void Application::OnRender() const
 }
 
 #if defined(PLATFORM_WEB)
-static void MainLoopStep(void* arg)
+void MainLoopStep(void* arg)
 {
 	const Application* app = static_cast<const Application*>(arg);
 	app->OnUpdate();

@@ -42,7 +42,7 @@ weeds, wilted drought-victims, and sabotage power-ups keep every game chaotic. P
 
 ## How to Play
 
-1. Launch the game.
+1. Launch the game either the binary or web-version.
 2. Use the menu to select the desired mode:
    - **Tab** to switch between Single Player and Multi Player.
    - **Enter/Space** to start a match.
@@ -51,7 +51,9 @@ weeds, wilted drought-victims, and sabotage power-ups keep every game chaotic. P
    - If you don't have enough water, walk back to your river and press the action key to refill.
    - Collect power-ups from Bonus plants and activate them with `Q` (Player 1) or `/` (Player 2).
 4. The player with the highest score when all plants are watered (or the timer runs out) **wins**.
-5. Press **Enter/Space** to replay after the game is over, or **Esc** to quit.
+5. Press **Enter/Space** to replay after the game is over, or **Esc** to quit(only in native binary).
+
+> There is a bug in the web-version when you go fullscreen the canvas somethimes go offset, just reload the webpage if this happens.
 
 ## Controls
 
@@ -100,11 +102,11 @@ Other keys: **F11** toggles fullscreen, **Tab** switches game mode on the menu s
 
 ### Power-ups (earned from Bonus plants)
 
-| Name         | Activation             | Effect                                                                                                            |
-| ------------ | ---------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **Big Can**  | Automatic at refill    | Next refill gives **2× your max capacity**.                                                                       |
-| **Skip**     | **Q** / **/** at plant | Instantly completes the current plant (+5 pts).                                                                   |
-| **Sabotage** | **Q** / **/**          | Converts the enemy's nearest approaching plant into a Sabotage plant with inflated cost — and **hides it again**. |
+| Name         | Activation              | Effect                                                                                                            |
+| ------------ | ----------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **Big Can**  | Automatic at refill     | Next refill gives **2× your max capacity**.                                                                       |
+| **Skip**     | **Q** or **/** at plant | Instantly completes the current plant (+5 pts).                                                                   |
+| **Sabotage** | **Q** or **/**          | Converts the enemy's nearest approaching plant into a Sabotage plant with inflated cost — and **hides it again**. |
 
 ### Difficulty
 
@@ -162,7 +164,7 @@ cd "The_Garden_Duel"
    ```
 3. Run:
    ```bash
-   build\The_Garden_Duel.exe
+   build/The_Garden_Duel.exe
    ```
 
 ### For Other Platforms (Also works for Windows)
@@ -189,7 +191,7 @@ cd "The_Garden_Duel"
 4. Run:
    ```bash
    ./build/The_Garden_Duel        # Linux / macOS
-   build\The_Garden_Duel.exe      # Windows
+   build/The_Garden_Duel.exe      # Windows
    ```
 
 ### Building for Web
