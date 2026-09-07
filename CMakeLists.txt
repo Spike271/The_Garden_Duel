@@ -81,8 +81,8 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
 )
 
 if (${PLATFORM} STREQUAL "Web")
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Os -Wall -s USE_GLFW=3 -s ASSERTIONS=1 -s WASM=1 -s GL_ENABLE_GET_PROC_ADDRESS=1 -s FORCE_FILESYSTEM=1 -s INITIAL_MEMORY=314572800 -s TOTAL_MEMORY=536870912 -s ASYNCIFY=1 --preload-file ${CMAKE_CURRENT_SOURCE_DIR}/res@res")
-    set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".html") # Tell Emscripten to build an {project_name}.html file.
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Os -Wall -s USE_GLFW=3 -s ASSERTIONS=1 -s WASM=1 -s GL_ENABLE_GET_PROC_ADDRESS=1 -s FORCE_FILESYSTEM=1 -s INITIAL_MEMORY=314572800 -s TOTAL_MEMORY=536870912 --preload-file ${CMAKE_CURRENT_SOURCE_DIR}/res@res")
+    set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".html")
 endif ()
 
 # Checks if OSX and links appropriate frameworks (only required on MacOS)
